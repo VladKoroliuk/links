@@ -1,0 +1,27 @@
+extends layouts/main
+
+block styles
+    style
+        include ../styles/css/login.css
+
+block body
+    .wraper
+        .container
+            form#login
+                header
+                    h1 Log in
+                .form-row
+                    label(for='email') Email:
+                    input#email.default-input(type='email' required placeholder='Email')
+                .form-row
+                    label(for='password') Password:
+                    input#password.default-input(type='password' required placeholder='Password')
+                div
+                    span#error
+                button.default-btn(type='submit') Next
+            .sign-links
+                a(href="/app/") На главную
+                a(href="/app/signup") Регистрация
+    block scripts
+        script
+            include ../js/dist/login.bundle.js

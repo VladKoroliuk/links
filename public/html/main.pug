@@ -1,0 +1,17 @@
+extends layouts/main
+
+block styles
+    style
+        include ../styles/css/main.css
+
+block body
+    .wraper
+        include ./includes/header
+        main
+            include ./includes/navigation
+            
+            section
+                include ./includes/add-link
+block scripts
+    script
+        include ../js/dist/main.bundle.js

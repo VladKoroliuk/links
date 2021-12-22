@@ -1,0 +1,38 @@
+extends layouts/main
+
+block styles
+    style
+        include ../styles/css/login.css
+
+block body
+    .wraper
+        .container
+            form#signup
+                header
+                    h1 Sign up
+                .form-row
+                    label(for='email') Email:
+                    input#email.default-input(type='email' required placeholder='Email' autocomplete="off")
+                .form-row
+                    label(for='Name') Name:
+                    input#Name.default-input(type='text' required placeholder='Name' autocomplete="off")
+                .form-row
+                    label(for='password') Password:
+                    input#password.default-input(type='password' required placeholder='Password' autocomplete="off")
+                .form-row
+                    label(for='password_repeat') Repeat password:
+                    input#password_repeat.default-input(type='password' required placeholder='Repeat password' autocomplete="off")
+                div
+                    span#error
+                button.default-btn(type='submit') Next
+                div#loaderContainer
+                div
+                    span#result
+                div
+                    span#info
+            .sign-links
+                a(href="/app/") На главную
+                a(href="/app/login") Авторизация
+    block scripts
+        script
+            include ../js/dist/signup.bundle.js

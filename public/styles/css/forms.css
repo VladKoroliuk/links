@@ -1,0 +1,1 @@
+.wraper .container{max-width:322px}.sign-links{margin-top:30px;display:flex;justify-content:center;align-items:center;flex-direction:column;gap:7px}.sign-links a{color:#3f3f3f}#error{color:red;font-size:12px}#info,#result,#error{display:block;margin:10px 0 10px 0;max-width:100%}#result{text-align:center;font-weight:700;font-size:17px}.loaderWrap{height:100px}

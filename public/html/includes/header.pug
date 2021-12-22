@@ -1,0 +1,12 @@
+header
+  .container
+    nav
+      div
+        button Eng
+      .navigation-right-side
+        if autorized
+         span #{userData.email}
+         button(id='logout') logout
+        else
+          a(href='/app/signup') Sign up
+          a(href='/app/login') Sign in

@@ -1,0 +1,98 @@
+@import url("./general.less");
+
+.wraper{
+
+    & > header{
+        width: 100%;
+        height: @header-height;
+        display: flex;
+        align-items: center;
+    
+        & .container{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+    
+            & nav{
+                width: 68%;
+                display: flex;
+                justify-content: space-between;
+                font-size: @nav-font-size;
+    
+                button{
+                    font-size: @nav-font-size;
+                }
+    
+                & .navigation-right-side{
+                    display: flex;
+                    width: 50%;
+                    justify-content: right;
+                    gap: 60px;
+                }
+            }
+        }
+    }
+    & main{
+        width: 100%;
+        height: calc(100vh - @header-height);
+        & > header{
+            width: 100%;    
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 150px;
+
+            & .header-section{
+                text-align: center;
+                width: 400px;
+                & a{
+                    font-weight: 300;
+                    font-size: 30px;
+                    line-height: 35px;
+                    opacity: .6;
+                }
+            }
+            & .header-section__active{
+                & a{
+                    font-size: 48px;
+                    opacity: 1;
+                    padding-bottom: 8px;
+                    border-bottom: 1.2px solid #4d4d4d;
+                    text-transform: capitalize;
+                }
+            }
+        }
+        & section{
+            margin-top: 105px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            #add-link{
+                display: flex;
+                flex-direction: column;
+                gap: 35px;
+            }
+            .add-link__input{
+                width: 745px;
+                height: 55px;
+                background: #EBEBEB;
+                border-radius: 5px;
+                font-size: 18px;
+                color: rgba(0, 0, 0, 0.5);
+                padding: 0 10px 0 10px;
+            }
+            .add-link__button{
+                background-color: @base-color;
+                width: 70px;
+                height: 70px;
+                padding: 18px;
+                border-radius: 100%;
+            }
+        }
+    }
+}
+
+
+
