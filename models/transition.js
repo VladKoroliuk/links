@@ -11,9 +11,25 @@ const transition = new Schema({
         type: String,
         required: true
     },
+    country: {
+        type: String,
+        required: false
+    },
+    device: {
+        type: Object,
+        required: false 
+    },
+    os: {
+        type: Object,
+        required: false
+    },
+    browser: {
+        type: Object,
+        required: false
+    },
     date: {
         type: Date,
-        required: false
+        default: Date.now
     },
     
 })

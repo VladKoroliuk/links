@@ -26,7 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \***************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _includes_navigation_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../includes/navigation.js */ \"./src/includes/navigation.js\");\n\r\n_includes_navigation_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"].init()\n\n//# sourceURL=webpack:///./src/pages/list.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _includes_navigation_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../includes/navigation.js */ \"./src/includes/navigation.js\");\n\r\n_includes_navigation_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"].init()\r\n\r\n\n\n//# sourceURL=webpack:///./src/pages/list.js?");
 
 /***/ })
 

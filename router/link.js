@@ -1,11 +1,9 @@
 import { Router } from "express";
-
+import linkController from '../controllers/api/link.js'
 const link = new Router()
 
 
-link.get('/:ID', (req, res) => {
-    res.send("Link")
-})
+link.get('/f/:ID', linkController.follow)
 link.get('/', (req, res)=> {
     res.redirect('/app')
 })

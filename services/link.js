@@ -1,5 +1,6 @@
 import linkModel from '../models/link.js'
-
+import Sniffr from 'sniffr'
+import transitionModel from '../models/transition.js'
 class linkService{
 
     async create(user, url){
@@ -41,6 +42,19 @@ class linkService{
 
         return links.reverse()
 
+    }
+    async saveFollowData(ip, userAgent, id){
+        const s = new Sniffr()
+
+        s.sniff(userAgent)
+
+        const linkData = await linkModel.findOne({key: id})
+        
+        const transition = await transitionModel.create({...s, ip, link: linkData._id})
+
+        await transition.save()
+
+        return linkData.from
     }
 
 }
