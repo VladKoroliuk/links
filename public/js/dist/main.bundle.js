@@ -40,13 +40,23 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./src/includes/navigation.js":
+/*!************************************!*\
+  !*** ./src/includes/navigation.js ***!
+  \************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({\r\n    init(){\r\n\r\n        const path = window.location.pathname\r\n\r\n        const category = path.split('/')[2]\r\n\r\n        const items = document.getElementsByClassName('header-section')\r\n\r\n        switch (category) {\r\n            case '':\r\n                items[1].classList.add('header-section__active')\r\n                break;\r\n            case 'list':\r\n                items[2].classList.add('header-section__active')\r\n                break;\r\n            case 'statistics':\r\n                items[0].classList.add('header-section__active')\r\n                break;\r\n            default:\r\n                break;\r\n        }\r\n\r\n\r\n    }\r\n});\n\n//# sourceURL=webpack:///./src/includes/navigation.js?");
+
+/***/ }),
+
 /***/ "./src/model/Link.js":
 /*!***************************!*\
   !*** ./src/model/Link.js ***!
   \***************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _server_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../server.js */ \"./src/server.js\");\n\r\n\r\n\r\nconst server = new _server_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"]()\r\n\r\nclass Link{\r\n    async create(url, view = {}){\r\n\r\n        const response = await server.request('/link', \"POST\", {url})\r\n\r\n        if(response.status == 401){\r\n            window.location.href = \"/app/login\"\r\n        }\r\n\r\n    }\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new Link);\n\n//# sourceURL=webpack:///./src/model/Link.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _server_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../server.js */ \"./src/server.js\");\n\r\n\r\nconst server = new _server_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"]()\r\n\r\nclass Link{\r\n    async create(url, view = {}){\r\n        const response = await server.request('/link', \"POST\", {url})\r\n\r\n        if(response.status == 401){\r\n            window.location.href = \"/app/login\"\r\n        }\r\n    }\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new Link);\n\n//# sourceURL=webpack:///./src/model/Link.js?");
 
 /***/ }),
 
@@ -66,7 +76,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \***************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _app_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../app.js */ \"./app.js\");\n/* harmony import */ var _controller_Link_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../controller/Link.js */ \"./src/controller/Link.js\");\n\r\n\r\n\r\n_app_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"].events = function(){\r\n    \r\n    const form = document.getElementById('add-link')\r\n    const link = new _controller_Link_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"]()\r\n\r\n    form.onsubmit = async (e) => {\r\n        e.preventDefault()\r\n        await link.create()\r\n    }\r\n\r\n\r\n}\r\n\r\n_app_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"].init()\n\n//# sourceURL=webpack:///./src/pages/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _app_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../app.js */ \"./app.js\");\n/* harmony import */ var _controller_Link_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../controller/Link.js */ \"./src/controller/Link.js\");\n/* harmony import */ var _includes_navigation_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../includes/navigation.js */ \"./src/includes/navigation.js\");\n\r\n\r\n\r\n_includes_navigation_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"].init()\r\n\r\n_app_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"].events = function(){\r\n    \r\n    const form = document.getElementById('add-link')\r\n    const link = new _controller_Link_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"]()\r\n\r\n    form.onsubmit = async (e) => {\r\n        e.preventDefault()\r\n        await link.create()\r\n    }\r\n\r\n\r\n}\r\n\r\n_app_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"].init()\n\n//# sourceURL=webpack:///./src/pages/main.js?");
 
 /***/ }),
 

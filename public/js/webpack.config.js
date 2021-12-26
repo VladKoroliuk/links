@@ -7,7 +7,9 @@ export default {
         app: './app.js',
         login: './src/pages/login.js',
         signup: './src/pages/signup.js',
-        main: './src/pages/main.js'
+        main: './src/pages/main.js',
+        list: './src/pages/list.js',
+        statistics: './src/pages/statistics.js'
     },
     output: {
         path: path.resolve(path.resolve(), 'dist'),

@@ -1,5 +1,7 @@
 import app from '../../app.js'
 import linkController from '../controller/Link.js'
+import navigation from '../includes/navigation.js'
+navigation.init()
 
 app.events = function(){
     
