@@ -21,9 +21,7 @@
     "mongoose": "^6.0.8",
     "nodemailer": "^6.6.5",
     "pug": "^3.0.2",
-    "uuid": "^8.3.2",
-    "webpack": "^5.58.2",
-    "webpack-cli": "^4.9.0"
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "clean-webpack-plugin": "^4.0.0",
@@ -31,6 +29,8 @@
     "less": "^4.1.2",
     "less-loader": "^10.2.0",
     "nodemon": "^2.0.13",
-    "style-loader": "^3.3.1"
+    "style-loader": "^3.3.1",
+    "webpack": "^5.58.2",
+    "webpack-cli": "^4.9.0"
   }
 }

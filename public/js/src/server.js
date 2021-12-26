@@ -17,16 +17,12 @@ class Server{
             body: JSON.stringify(data)
 
           })
-
-
-          // return await response.json()
         
           console.log(response)
 
           return response
             
     }
-
 }
 
 export default Server

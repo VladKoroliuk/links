@@ -26,11 +26,25 @@ class FrontendController{
 
         res.render('registration')
     }
-    async isAutorized(accessToken){
-        if (!await userService.isAutorized(accessToken)){
-            return false
+    async list(req, res){
+        if(!req.autorized){
+            return res.redirect('/app/login')
         }
-        return true
+
+        res.render('list', {
+            autorized: req.autorized,
+            userData: req.user
+        })
+    }
+    async statistics(req, res){
+        if(!req.autorized){
+            return res.redirect('/app/login')
+        }
+
+        res.render('statistics', {
+            autorized: req.autorized,
+            userData: req.user
+        })
     }
 }
 

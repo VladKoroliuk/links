@@ -23,14 +23,12 @@ class User{
 
             const response = await this.api.request('/user/registration', "POST", data)
 
-            if(response.message){
-                view.showError(response.message)
-                return view.removePreloader()
-            }
-    
             view.showError('')
             view.removePreloader()
-            view.showInfo(`На указанную почту было отправлено письмо для подтверждения аккаунта!`)
+            if(!await view.errorProcessing(response)){
+                view.showInfo(`На указанную почту было отправлено письмо для подтверждения аккаунта!`)
+            }
+           
         }catch(e){
             console.log(e)
         }

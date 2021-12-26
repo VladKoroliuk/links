@@ -23,7 +23,6 @@ app.use(auth)
 app.use('/api', routerApi)
 app.use('/app', routerFront)
 app.use('/', routerLink)
-
 app.use(errors)
 
 const start = async () => {

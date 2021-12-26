@@ -18,8 +18,5 @@ export default async function(req, res, next){
 
     req.user = user
     req.autorized = true
-    console.log(accessToken)
-    console.log(req.autorized)
-    console.log(req.cookies)
     next()
 }

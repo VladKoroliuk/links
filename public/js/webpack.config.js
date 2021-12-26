@@ -4,9 +4,10 @@ import { CleanWebpackPlugin } from 'clean-webpack-plugin'
 export default {
     mode: "development",
     entry: {
-        main: './app.js',
+        app: './app.js',
         login: './src/pages/login.js',
-        signup: './src/pages/signup.js'
+        signup: './src/pages/signup.js',
+        main: './src/pages/main.js'
     },
     output: {
         path: path.resolve(path.resolve(), 'dist'),

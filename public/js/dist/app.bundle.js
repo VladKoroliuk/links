@@ -30,26 +30,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./src/controller/Link.js":
-/*!********************************!*\
-  !*** ./src/controller/Link.js ***!
-  \********************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _model_Link_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../model/Link.js */ \"./src/model/Link.js\");\n/* harmony import */ var _view_Base_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../view/Base.js */ \"./src/view/Base.js\");\n\r\n\r\n\r\n\r\nclass Link{\r\n    constructor(){\r\n        this.input = document.getElementById('add-link-input')\r\n        this.view = new _view_Base_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"]()\r\n    }\r\n    async create(){\r\n        const url = this.input.value\r\n\r\n        await _model_Link_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"].create(url)\r\n\r\n\r\n        this.view.clearInput(this.input)\r\n    }\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Link);\n\n//# sourceURL=webpack:///./src/controller/Link.js?");
-
-/***/ }),
-
-/***/ "./src/model/Link.js":
-/*!***************************!*\
-  !*** ./src/model/Link.js ***!
-  \***************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _server_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../server.js */ \"./src/server.js\");\n\r\n\r\n\r\nconst server = new _server_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"]()\r\n\r\nclass Link{\r\n    async create(url, view = {}){\r\n\r\n        const response = await server.request('/link', \"POST\", {url})\r\n\r\n        if(response.status == 401){\r\n            window.location.href = \"/app/login\"\r\n        }\r\n\r\n    }\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new Link);\n\n//# sourceURL=webpack:///./src/model/Link.js?");
-
-/***/ }),
-
 /***/ "./src/model/User.js":
 /*!***************************!*\
   !*** ./src/model/User.js ***!
@@ -60,16 +40,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./src/pages/main.js":
-/*!***************************!*\
-  !*** ./src/pages/main.js ***!
-  \***************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _app_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../app.js */ \"./app.js\");\n/* harmony import */ var _controller_Link_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../controller/Link.js */ \"./src/controller/Link.js\");\n\r\n\r\n\r\n_app_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"].events = function(){\r\n    \r\n    const form = document.getElementById('add-link')\r\n    const link = new _controller_Link_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"]()\r\n\r\n    form.onsubmit = async (e) => {\r\n        e.preventDefault()\r\n        await link.create()\r\n    }\r\n\r\n\r\n}\r\n\r\n_app_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"].init()\n\n//# sourceURL=webpack:///./src/pages/main.js?");
-
-/***/ }),
-
 /***/ "./src/server.js":
 /*!***********************!*\
   !*** ./src/server.js ***!
@@ -77,16 +47,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _app
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../config.js */ \"./config.js\");\n\r\n\r\nclass Server{\r\n\r\n    #apiLink = _config_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"].api.link\r\n    #mode = 'same-origin'\r\n\r\n    async request( url, method, data = {} ){\r\n        const response = await fetch(this.#apiLink+url, {\r\n\r\n            method,\r\n            mode: this.#mode,\r\n            headers: new Headers({\r\n              Accept: 'application/json',\r\n              'Content-Type': 'application/json'\r\n            }),\r\n            body: JSON.stringify(data)\r\n\r\n          })\r\n        \r\n          console.log(response)\r\n\r\n          return response\r\n            \r\n    }\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Server);\n\n//# sourceURL=webpack:///./src/server.js?");
-
-/***/ }),
-
-/***/ "./src/view/Base.js":
-/*!**************************!*\
-  !*** ./src/view/Base.js ***!
-  \**************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nclass BaseView{\r\n    clear(node){\r\n        node.innerHTML = ''\r\n    }\r\n    clearInput(input){\r\n        input.value = ''\r\n    }\r\n    \r\n}\r\n\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (BaseView);\n\n//# sourceURL=webpack:///./src/view/Base.js?");
 
 /***/ })
 
@@ -150,7 +110,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/pages/main.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./app.js");
 /******/ 	
 /******/ })()
 ;
