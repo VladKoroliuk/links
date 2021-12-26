@@ -1,4 +1,4 @@
-import userService from '../../services/user.js'
+import linkService from '../../services/link.js'
 
 
 class FrontendController{
@@ -31,9 +31,12 @@ class FrontendController{
             return res.redirect('/app/login')
         }
 
+        const links = await linkService.get(req.user._id)
+
         res.render('list', {
             autorized: req.autorized,
-            userData: req.user
+            userData: req.user,
+            links
         })
     }
     async statistics(req, res){

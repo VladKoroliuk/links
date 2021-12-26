@@ -1,0 +1,58 @@
+.links-table{
+    border-spacing: 0 8px;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+    color: rgba(0, 0, 0, 0.76);
+    width: 50%;
+    text-align: start;
+    & td{
+        padding: 14px 17px;
+    }
+    & tbody{
+        tr{
+            background: #EBEBEB;
+            border-radius: 15px;
+            margin-bottom: 8px;
+            position: relative;
+            .to-stat{
+                position: absolute;
+                display: none;
+                justify-content: center;
+                align-items: center;
+                padding: 0;
+                height: 100%;
+                width: 120px;
+            }
+            &:hover > .to-stat{
+                display: flex;
+            }
+            td{
+                .full-link{
+                    position: absolute;
+                    top: 40px;
+                    left: 40px;
+                    z-index: 400;
+                    display: none;
+                    background-color: #FFF;
+                    padding: 2px;
+                    border-radius: 5px;
+                    width: 300px;
+                    border: 1px solid gray;
+                    word-wrap: break-word;
+                    & span{
+                        color: rgb(0, 0, 0);
+
+                    }
+                }
+
+                &:hover > .full-link{
+                        display: block;
+                        
+                    }
+                }
+            }
+
+        }
+    
+}

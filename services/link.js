@@ -35,6 +35,13 @@ class linkService{
         return false
 
     }
+    async get(user){
+
+        const links = await linkModel.find({user})
+
+        return links.reverse()
+
+    }
 
 }
 
