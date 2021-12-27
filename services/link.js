@@ -1,6 +1,7 @@
 import linkModel from '../models/link.js'
 import Sniffr from 'sniffr'
 import transitionModel from '../models/transition.js'
+import ApiError from '../exeptions/api-error.js'
 class linkService{
 
     async create(user, url){
@@ -42,12 +43,16 @@ class linkService{
         return result
     }
     async saveFollowData(ip, userAgent, id){
-        const s = new Sniffr()
-
-        s.sniff(userAgent)
 
         const linkData = await linkModel.findOne({key: id})
-        
+
+        if(linkData == null){
+            throw ApiError.NotFound() 
+        }
+
+        const s = new Sniffr()
+        s.sniff(userAgent)
+
         const transition = await transitionModel.create({...s, ip, link: linkData._id})
 
         await transition.save()

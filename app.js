@@ -25,6 +25,10 @@ app.use('/app', routerFront)
 app.use('/', routerLink)
 app.use(errors)
 
+
+app.get('*', (req, res)=>{
+    res.status(404).render('404')
+})
 const start = async () => {
     try{
         await mongoose.connect(process.env.DBLINK, {

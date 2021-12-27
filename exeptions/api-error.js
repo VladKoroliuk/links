@@ -15,4 +15,7 @@ export default class ApiError extends Error{
     static BadRequest(message, errors = []){
         return new ApiError(500, message, errors)
     }
+    static NotFound(){
+        return new ApiError(404)
+    }
 } 
