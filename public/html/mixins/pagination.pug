@@ -4,7 +4,7 @@ mixin pagination(data)
             - const link = (page) => '/app/list?p=' + page
             if data.hasPrevPage
                 li
-                    a(href=link(data.page - 1)).pagination-edge-buttons Pre
+                    a(href=link(data.page - 1)).pagination-edge-buttons Prev
             - let page = data.page - 3
             - let limit = data.page + 3
             while page <= limit
