@@ -9,7 +9,8 @@ export default {
         signup: './src/pages/signup.js',
         main: './src/pages/main.js',
         list: './src/pages/list.js',
-        statistics: './src/pages/statistics.js'
+        statistics: './src/pages/statistics.js',
+        notFound: './src/pages/notFound.js'
     },
     output: {
         path: path.resolve(path.resolve(), 'dist'),
