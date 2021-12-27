@@ -33,6 +33,10 @@ class FrontendController{
 
         const page = req.query.p || 1
 
+        if(isNaN(page) || Number(page) < 1){
+            return next(ApiError.NotFound())
+        }
+
         const result = await linkService.get(req.user._id, page)
 
         if(result.totalPages < page){
