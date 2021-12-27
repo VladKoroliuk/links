@@ -1,5 +1,5 @@
 import linkService from '../../services/link.js'
-
+import ApiError from '../../exeptions/api-error.js'
 
 class FrontendController{
     async main(req, res){
@@ -26,7 +26,7 @@ class FrontendController{
 
         res.render('registration')
     }
-    async list(req, res){
+    async list(req, res, next){
         if(!req.autorized){
             return res.redirect('/app/login')
         }
@@ -34,6 +34,10 @@ class FrontendController{
         const page = req.query.p || 1
 
         const result = await linkService.get(req.user._id, page)
+
+        if(result.totalPages < page){
+            return next(ApiError.NotFound())
+        }
 
         res.render('list', {
             autorized: req.autorized,
