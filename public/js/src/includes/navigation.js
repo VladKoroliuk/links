@@ -9,9 +9,6 @@ export default {
         const items = document.getElementsByClassName('header-section')
 
         switch (category) {
-            case '':
-                items[1].classList.add('header-section__active')
-                break;
             case 'list':
                 items[2].classList.add('header-section__active')
                 break;
@@ -19,6 +16,7 @@ export default {
                 items[0].classList.add('header-section__active')
                 break;
             default:
+                items[1].classList.add('header-section__active')
                 break;
         }
 

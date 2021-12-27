@@ -6,18 +6,19 @@ table.links-table
             td Transitions
             td Date of creation
     tbody
-        each data in links
-            - const short = String(data.from).substr(0, 22) + '...'
-            - const to = "https:/click.com/" + data.key
-            - const date = new Date(data.date).toISOString().slice(0,10)
+        each item in data.docs
+            - const short = String(item.from).substr(0, 22) + '...'
+            - const to = "https:/click.com/" + item.key
+            - const date = new Date(item.date).toISOString().slice(0,10)
             tr
                 td 
                     span.short-link
                         =short
                     div.full-link
-                        span= data.from
+                        span= item.from
                 td= to
                 td 457
                 td= date
                 td.to-stat
                     button.default-btn statistics
+

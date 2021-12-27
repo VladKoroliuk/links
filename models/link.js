@@ -1,5 +1,7 @@
 import pkg from 'mongoose'
+import mongoosePaginate from 'mongoose-paginate-v2'
 const { Schema, model } = pkg
+
 
 const link = new Schema({
     user: {
@@ -20,5 +22,7 @@ const link = new Schema({
         default: Date.now
     }
 })
+
+link.plugin(mongoosePaginate)
 
 export default model('Link', link)

@@ -1,0 +1,20 @@
+mixin pagination(data)
+    div.pagination-wrap
+        ul
+            - const link = (page) => '/app/list?p=' + page
+            if data.hasPrevPage
+                li
+                    a(href=link(data.page - 1)).pagination-edge-buttons Pre
+            - let page = data.page - 3
+            - let limit = data.page + 3
+            while page <= limit
+                if page <= data.totalPages && page >= 1
+                    li
+                        if page == data.page 
+                            a(href=link(page) disabled).active-page-btn= page
+                        else 
+                            a(href=link(page))= page
+                - page++
+            if data.hasNextPage
+                li
+                    a(href=link(data.page + 1)).pagination-edge-buttons Next

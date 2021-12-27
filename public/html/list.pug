@@ -1,5 +1,5 @@
 extends layouts/main
-
+include mixins/pagination
 block styles
     style
         include ../styles/css/main.css
@@ -12,9 +12,9 @@ block body
         include ./includes/header
         main
             include ./includes/navigation
-            
             section
                 include ./includes/links-list
+            +pagination(data)
 block scripts
     script
         include ../js/dist/list.bundle.js

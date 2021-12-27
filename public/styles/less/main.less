@@ -34,6 +34,7 @@
     & main{
         width: 100%;
         height: calc(100vh - @header-height);
+        padding-bottom: 50px;
         & > header{
             width: 100%;    
             display: flex;
@@ -94,4 +95,33 @@
 }
 
 
-
+.pagination-wrap{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    & ul{
+        display: flex;
+        list-style-type: none;
+        gap: 5px;
+        & li a{
+            border: 1px solid gray;
+            display: flex;
+            min-width: 30px;
+            height: 30px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+        }
+        .pagination-edge-buttons{
+            padding: 0 15px;
+            background-color: #000;
+            color: #fff;
+        }
+        .active-page-btn{
+            background-color: rgb(131, 131, 131);
+            cursor: default;
+        }
+    }
+}

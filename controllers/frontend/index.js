@@ -31,12 +31,14 @@ class FrontendController{
             return res.redirect('/app/login')
         }
 
-        const links = await linkService.get(req.user._id)
+        const page = req.query.p || 1
+
+        const result = await linkService.get(req.user._id, page)
 
         res.render('list', {
             autorized: req.autorized,
             userData: req.user,
-            links
+            data: result
         })
     }
     async statistics(req, res){

@@ -36,12 +36,10 @@ class linkService{
         return false
 
     }
-    async get(user){
-
-        const links = await linkModel.find({user})
-
-        return links.reverse()
-
+    async get(user, page = 1){
+        const result = await linkModel.paginate({user}, {limit: 12, page})
+        console.log(result)
+        return result
     }
     async saveFollowData(ip, userAgent, id){
         const s = new Sniffr()

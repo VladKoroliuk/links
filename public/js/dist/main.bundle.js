@@ -26,7 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*******************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({\r\n    api: {\r\n        // link: 'http://localhost:3000/api',\r\n        link: \"https://73ea-195-46-35-194.ngrok.io/api\"\r\n    }\r\n});\n\n//# sourceURL=webpack:///./config.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({\r\n    api: {\r\n        link: 'http://localhost:3000/api'\r\n    }\r\n});\n\n//# sourceURL=webpack:///./config.js?");
 
 /***/ }),
 
@@ -46,7 +46,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({\r\n    init(){\r\n\r\n        const path = window.location.pathname\r\n\r\n        const category = path.split('/')[2]\r\n\r\n        const items = document.getElementsByClassName('header-section')\r\n\r\n        switch (category) {\r\n            case '':\r\n                items[1].classList.add('header-section__active')\r\n                break;\r\n            case 'list':\r\n                items[2].classList.add('header-section__active')\r\n                break;\r\n            case 'statistics':\r\n                items[0].classList.add('header-section__active')\r\n                break;\r\n            default:\r\n                break;\r\n        }\r\n\r\n\r\n    }\r\n});\n\n//# sourceURL=webpack:///./src/includes/navigation.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({\r\n    init(){\r\n\r\n        const path = window.location.pathname\r\n\r\n        const category = path.split('/')[2]\r\n\r\n        const items = document.getElementsByClassName('header-section')\r\n\r\n        switch (category) {\r\n            case 'list':\r\n                items[2].classList.add('header-section__active')\r\n                break;\r\n            case 'statistics':\r\n                items[0].classList.add('header-section__active')\r\n                break;\r\n            default:\r\n                items[1].classList.add('header-section__active')\r\n                break;\r\n        }\r\n\r\n\r\n    }\r\n});\n\n//# sourceURL=webpack:///./src/includes/navigation.js?");
 
 /***/ }),
 
