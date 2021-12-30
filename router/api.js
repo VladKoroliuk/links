@@ -5,6 +5,7 @@ import validation from "../middlewares/validation.js";
 import isAuth from "../middlewares/isAuth.js";
 import link from "../controllers/api/link.js"
 
+
 const api = new Router()
 
 // USER
@@ -29,6 +30,5 @@ api.post('/link',
     isAuth,
     link.create
 )
-
 
 export default api

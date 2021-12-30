@@ -10,7 +10,8 @@ export default {
         main: './src/pages/main.js',
         list: './src/pages/list.js',
         statistics: './src/pages/statistics.js',
-        notFound: './src/pages/notFound.js'
+        notFound: './src/pages/notFound.js',
+        follow: './src/pages/follow.js'
     },
     output: {
         path: path.resolve(path.resolve(), 'dist'),

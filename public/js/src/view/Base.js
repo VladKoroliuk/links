@@ -5,6 +5,9 @@ class BaseView{
     clearInput(input){
         input.value = ''
     }
+    text(node, text){
+        node.innerHTML = text
+    }
     
 }
 

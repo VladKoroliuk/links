@@ -1,0 +1,51 @@
+.main-block{
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+    .statistics-wrap{
+        width: 50%;
+        .stat-content{
+            display: none;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            .base-info{
+                display: flex;
+                gap: 50px;
+                color: #000000;
+                .base-info__value{
+                    font-size: 64px;
+                    line-height: 75px;
+                }
+                .base-info__title{
+                    font-weight: 300;
+                    font-size: 24px;
+                    line-height: 28px;
+                    
+                }
+            }
+            .charts-wrap{
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+                width: 100%;
+                margin-top: 100px;
+                justify-content: center;
+                align-items: center;
+                & .charts-section{
+                    display: flex;
+                    flex-direction: column;
+                    & h2{
+                        text-align: center;
+                        margin-bottom: 30px;
+                    }
+                }
+                .chart-container{
+                    position: relative;
+                    height: 400px;
+                    width: 400px
+                }
+            }
+        }
+    }
+}

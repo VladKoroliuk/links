@@ -1,5 +1,5 @@
 import express from 'express'
-import dotenv from 'dotenv' 
+import dotenv from 'dotenv'
 import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
@@ -9,10 +9,13 @@ import routerLink from './router/link.js'
 import errors from './middlewares/errors.js'
 import auth from './middlewares/auth.js'
 import clearCookies from './middlewares/clearCookies.js'
+import { WebSocketServer } from 'ws'
+import { handler } from './websocket.js'
+import http from 'http'
+
 dotenv.config()
-
 const app = express()
-
+const server = http.createServer(app)
 
 app.set('views', './public/html')
 app.set('view engine', 'pug')
@@ -23,28 +26,31 @@ app.use(auth)
 app.use('/api', routerApi)
 app.use('/app', routerFront)
 app.use('/', routerLink)
+app.get('*', (req, res) => res.status(404).render('404'))
 app.use(errors)
 
 
-app.get('*', (req, res)=>{
-    res.status(404).render('404')
-})
+const wss = new WebSocketServer({ server })
+handler(wss)
+
+
 const start = async () => {
-    try{
+    try {
         await mongoose.connect(process.env.DBLINK, {
             useNewUrlParser: true,
         })
-        app.listen(process.env.PORT, (err) => {
-            if(err){
+
+        server.listen(process.env.PORT, (err) => {
+            if (err) {
                 throw err
-            }else{
+            } else {
                 console.log("\x1b[34m", `Started: http://localhost:${process.env.PORT}`)
             }
         })
-    }catch(e){
+    } catch (e) {
         throw e
     }
-    
+
 }
 
 start()

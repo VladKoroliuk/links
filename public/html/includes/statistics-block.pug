@@ -1,0 +1,20 @@
+.statistics-wrap
+    .stat-content
+        .base-info
+            div
+                span.base-info__value#transitions-count
+                span.base-info__title Transitions
+            div 
+                span.base-info__value#transitions-unique 98% 
+                span.base-info__title Unique transitions
+        .charts-wrap
+            .charts-section
+                h2 Browsers
+                .chart-container
+                    canvas(id="browsersChart")
+            .charts-section
+                h2 OS
+                .chart-container
+                    canvas(id="osChart")
+    .lds-wrap
+        .lds-dual-ring

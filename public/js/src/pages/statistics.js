@@ -1,2 +1,19 @@
 import navigation from '../includes/navigation.js'
-navigation.init()
+import app from '../../app.js'
+import statisticsController from '../controller/Statistics.js'
+
+app.main = async () => {
+
+    navigation.init()
+
+    const controller = new statisticsController()
+
+    await controller.init()
+
+    
+
+}
+
+
+
+app.init()

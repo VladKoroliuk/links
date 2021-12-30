@@ -3,13 +3,15 @@ extends layouts/main
 block styles
     style
         include ../styles/css/main.css
+        include ../styles/css/statistics.css
 
 block body
     .wraper
         include ./includes/header
         main
             include ./includes/navigation
-            
+            .main-block
+                include ./includes/statistics-block
             
 block scripts
     script

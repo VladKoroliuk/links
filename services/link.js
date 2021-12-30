@@ -1,5 +1,5 @@
 import linkModel from '../models/link.js'
-import Sniffr from 'sniffr'
+import uaParser from 'ua-parser-js'
 import transitionModel from '../models/transition.js'
 import ApiError from '../exeptions/api-error.js'
 class linkService{
@@ -49,14 +49,21 @@ class linkService{
             throw ApiError.NotFound() 
         }
 
-        const s = new Sniffr()
-        s.sniff(userAgent)
+        var userData = uaParser(userAgent);
 
-        const transition = await transitionModel.create({...s, ip, link: linkData._id})
+        const transition = await transitionModel.create({
+            os: userData.os.name,
+            osVersion: userData.os.version,
+            browser: userData.browser.name,
+            browserVersion: userData.browser.major,
+            cpuArchitecture: userData.cpu.architecture,
+            ip,
+            link: linkData._id,
+            linkCreator: linkData.user
+        })
 
         await transition.save()
-
-        return linkData.from
+        return linkData
     }
 
 }

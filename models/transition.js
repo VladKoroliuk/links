@@ -7,30 +7,43 @@ const transition = new Schema({
         type: Schema.Types.ObjectId,
         required: true
     },
+    linkCreator:{
+        ref: "User",
+        type: Schema.Types.ObjectId,
+        required: true
+    },
     ip: {
         type: String,
-        required: true
+        required: false
     },
     country: {
         type: String,
         required: false
     },
-    device: {
-        type: Object,
-        required: false 
-    },
     os: {
-        type: Object,
+        type: String,
+        required: false
+    },
+    osVersion: {
+        type: String,
         required: false
     },
     browser: {
-        type: Object,
+        type: String,
+        required: false
+    },
+    browserVersion: {
+        type: String,
         required: false
     },
     date: {
         type: Date,
         default: Date.now
     },
+    cpuArchitecture: {
+        type: String,
+        required: false
+    }
     
 })
 

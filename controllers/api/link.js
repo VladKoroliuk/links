@@ -1,9 +1,9 @@
 import linkService from '../../services/link.js'
 
+class Link {
 
-class Link{
-    async create(req, res, next){
-        try{
+    async create(req, res, next) {
+        try {
 
             const { url } = req.body
 
@@ -13,21 +13,14 @@ class Link{
 
             return res.status(200).json(response)
 
-        }catch(e){
+        } catch (e) {
             next(e)
         }
     }
-    async follow(req, res, next){
-        try{
-            
-            const id = req.params.ID
-
-            const originalURL = await linkService.saveFollowData(req.ip, req.get('user-agent'), id)
-
-            console.log(originalURL)
-
-            res.redirect(originalURL)
-        }catch(e){
+    async follow(req, res, next) {
+        try {
+            res.render('follow')
+        } catch (e) {
             next(e)
         }
     }
