@@ -16,8 +16,10 @@ class StatisticsView extends Base {
         'rgb(192, 88, 237)',
         'rgb(209, 85, 19)',
     ]
-
     #charts = {}
+    #chartsNode = document.getElementById('charts')
+
+
     removePreloader() {
         document.getElementsByClassName('lds-wrap')[0].style.display = 'none'
         document.getElementsByClassName('stat-content')[0].style.display = 'flex'
@@ -25,9 +27,13 @@ class StatisticsView extends Base {
     updateData(count, data) {
         this.removePreloader()
         document.getElementById('transitions-count').innerHTML = count
+        if(count == 0){
+            return
+        }
+        this.#chartsNode.style.display = 'flex'
+        document.getElementById('no-data').style.display = "none"
         this.updateCharts(data)
     }
-
     initCharts() {
         this.#charts = {
             browsers: new Chart(document.getElementById('browsersChart').getContext('2d'), { type: 'pie', data: {datasets: [{}]}, options: this.#defaultChartOptions }),

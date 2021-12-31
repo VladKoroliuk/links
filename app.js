@@ -50,7 +50,6 @@ const start = async () => {
     } catch (e) {
         throw e
     }
-
 }
 
 start()

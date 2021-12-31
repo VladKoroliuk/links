@@ -7,7 +7,7 @@
             div 
                 span.base-info__value#transitions-unique 98% 
                 span.base-info__title Unique transitions
-        .charts-wrap
+        .charts-wrap(id="charts")
             .charts-section
                 h2 Browsers
                 .chart-container
@@ -16,5 +16,8 @@
                 h2 OS
                 .chart-container
                     canvas(id="osChart")
+        .no-data(id="no-data")
+            span No data
+        
     .lds-wrap
         .lds-dual-ring
