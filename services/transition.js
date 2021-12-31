@@ -5,7 +5,10 @@ class Transition{
 
     async getData(user){
         return await transitionModel.find({linkCreator: user})
-    }      
+    }
+    async getDataByLink(link){
+        return await transitionModel.find({link})
+    }
 
 }
 

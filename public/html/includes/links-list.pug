@@ -10,6 +10,7 @@ table.links-table
             - const short = String(item.from).substr(0, 22) + '...'
             - const to = "https:/click.com/" + item.key
             - const date = new Date(item.date).toISOString().slice(0,10)
+            - const statLink = "/app/statistics?link=" + item._id
             tr
                 td 
                     span.short-link
@@ -20,5 +21,6 @@ table.links-table
                 td 457
                 td= date
                 td.to-stat
-                    button.default-btn statistics
+                    a(href=statLink)
+                        button.default-btn statistics
 

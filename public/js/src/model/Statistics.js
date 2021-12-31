@@ -1,3 +1,6 @@
+import Uri from '../uri.js'
+
+
 class Statistics {
 
     #data = []
@@ -8,12 +11,16 @@ class Statistics {
     }
     connect() {
         const socket = new WebSocket('ws://localhost:3000')
+        const uri = new Uri(window.location)
         const token = document.cookie.match(/accessToken=(.+?)(;|$)/)[1]
+        const linkID = uri.params.link || null
+
 
         socket.onopen = () => {
             const message = {
                 event: "connect-dashboard",
-                token
+                token,
+                linkID
             }
             socket.send(JSON.stringify(message))
             socket.onmessage = (message) => {

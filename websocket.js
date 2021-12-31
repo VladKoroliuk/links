@@ -8,7 +8,7 @@ export function handler(wss){
     
             const data = JSON.parse(message.toString())
     
-            const { event, token } = data
+            const { event, token, linkID } = data
     
             const userData = await tokenService.validateAccess(token)
     
@@ -17,14 +17,18 @@ export function handler(wss){
             if (autorized) {
                 ws.clientID = userData._id
             }
-    
+            ws.linkID = linkID
+
             switch (event) {
                 case "transition":
                     const linkData = await linkService.saveFollowData(ws._socket.remoteAddress, req.headers['user-agent'], data.id)
                     wss.clients.forEach(c => {
                         if (c.clientID == linkData.user) {
                             transitionService.getData(linkData.user).then((data) => {
-                                c.send(JSON.stringify(data[data.length - 1]))
+                                const transition = data[data.length - 1]
+                                if(c.linkID == null || c.linkID == linkData._id){
+                                    c.send(JSON.stringify(transition))
+                                }
                             })
                         }
                     })
@@ -32,9 +36,16 @@ export function handler(wss){
                     break;
 
                 case "connect-dashboard":
-                    transitionService.getData(userData._id).then((data) => {
-                        ws.send(JSON.stringify(data))
-                    })
+                    if(ws.linkID == null){
+                        transitionService.getData(userData._id).then((data) => {
+                            ws.send(JSON.stringify(data))
+                        })
+                    }else{
+                        transitionService.getDataByLink(ws.linkID).then((data) => {
+                            ws.send(JSON.stringify(data))
+                        }) 
+                    }
+                    
                     break;
                 default:
                     break;
