@@ -12,8 +12,9 @@ class Link{
 
         await linkModel.create(url)
 
-
         this.view.clearInput(this.input)
+
+        window.location.href = '/app/list'
     }
 }
 

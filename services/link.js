@@ -38,7 +38,12 @@ class linkService{
 
     }
     async get(user, page = 1){
-        const result = await linkModel.paginate({user}, {limit: 12, page})
+        const result = await linkModel.paginate({user}, {
+            limit: 12, 
+            page,
+            sort: { date: -1 }
+        })
+
         return result
     }
     async saveFollowData(ip, userAgent, id){
