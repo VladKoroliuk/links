@@ -10,7 +10,7 @@ ws.onopen = () => {
 
     ws.send(JSON.stringify(message))
     ws.onmessage = (message) => {
-        // window.location.href = message.data
+        window.location.href = message.data
     }
 }
 

@@ -3,7 +3,6 @@ table.links-table
         tr
             td Link
             td New link
-            td Transitions
             td Date of creation
     tbody
         each item in data.docs
@@ -18,7 +17,6 @@ table.links-table
                     div.full-link
                         span= item.from
                 td= to
-                td 457
                 td= date
                 td.to-stat
                     a(href=statLink)

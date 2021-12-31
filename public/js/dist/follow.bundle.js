@@ -16,7 +16,7 @@
   \*****************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\nconst ws = new WebSocket('ws://localhost:3000')\r\nconst id = window.location.pathname.split('/')[2]\r\n\r\nws.onopen = () => {\r\n\r\n    const message = {\r\n        event: \"transition\",\r\n        id,\r\n    }\r\n\r\n    ws.send(JSON.stringify(message))\r\n    ws.onmessage = (message) => {\r\n        // window.location.href = message.data\r\n    }\r\n}\r\n\r\nws.onerror = (err) => {\r\n    console.log(err)\r\n}\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./src/pages/follow.js?");
+eval("__webpack_require__.r(__webpack_exports__);\nconst ws = new WebSocket('ws://localhost:3000')\r\nconst id = window.location.pathname.split('/')[2]\r\n\r\nws.onopen = () => {\r\n\r\n    const message = {\r\n        event: \"transition\",\r\n        id,\r\n    }\r\n\r\n    ws.send(JSON.stringify(message))\r\n    ws.onmessage = (message) => {\r\n        window.location.href = message.data\r\n    }\r\n}\r\n\r\nws.onerror = (err) => {\r\n    console.log(err)\r\n}\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./src/pages/follow.js?");
 
 /***/ })
 

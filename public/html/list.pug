@@ -14,9 +14,13 @@ block body
         include ./includes/header
         main
             include ./includes/navigation
-            section
-                include ./includes/links-list
-            +pagination(data)
+            if data.docs.length
+                section
+                    include ./includes/links-list
+                +pagination(data)
+            else
+                .no-data
+                    span No data
     include ./includes/footer
 block scripts
     script
