@@ -33,7 +33,7 @@
     }
     & main{
         width: 100%;
-        height: calc(100vh - @header-height);
+        min-height: calc(100vh - @header-height);
         padding-bottom: 50px;
         & > header{
             width: 100%;    
@@ -124,4 +124,13 @@
             cursor: default;
         }
     }
+}
+
+.footer{
+    display: flex;
+    height: 30px;
+    border-top: 1px solid gray;
+    align-items: center;
+    padding:0 10px;
+    font-size: 15px;
 }
