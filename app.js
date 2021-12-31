@@ -12,11 +12,13 @@ import clearCookies from './middlewares/clearCookies.js'
 import { WebSocketServer } from 'ws'
 import { handler } from './websocket.js'
 import http from 'http'
-
+import path from 'path'
+import favicon from 'serve-favicon'
 dotenv.config()
 const app = express()
 const server = http.createServer(app)
 
+app.use(favicon(path.join(path.resolve(),'public','images','favicon.ico')))
 app.set('views', './public/html')
 app.set('view engine', 'pug')
 app.use(bodyParser.json())
